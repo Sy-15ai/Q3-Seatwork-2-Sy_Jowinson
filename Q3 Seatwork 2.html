@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3 Seatwork 2</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #140f6b, #030359, #08768b);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .header {
+            background: #102b5f;
+            padding: 15px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .neon {
+            color: #00fff7;
+        }
+
+        .result {
+            font-size: 22px;
+            margin-top: 15px;
+            color: #00ff99;
+        }
+
+        .brand-btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .store-box {
+            background: rgba(102, 4, 4, 0.264);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header"> Product Locator</div>
+
+    <div class="container mt-4">
+        <div class="row">
+
+           
+            <div class="col-md-3">
+                <div class="card">
+                    <h5 class="neon text-center">Recommended Brands</h5>
+                    <button type="button" class="btn btn-dark" onclick="as()">Acer</button>
+     <button type="button" class="btn btn-dark" onclick="as()">Asus</button>
+      <button type="button" class="btn  btn-dark w-100" onclick="lv()">Lenovo</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <h3>Need a gaming laptop?</h3>
+                    <p>Enter your budget and let's find the right one for you.</p>
+
+                    <input type="number" id="budget" class="form-control mb-3" placeholder="Enter your budget in pesos">
+
+                    <button class="btn btn-primary w-100" onclick="findLaptop()">Search</button>
+
+                    <p id="output" class="result"></p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <h5 class="neon text-center">Store Location</h5>
+
+                    <button class="store-box w-100 text-white" onclick="checkStore('Villman')">
+    <strong>Villman Computers</strong><br>
+    SM City Fairview
+</button>
+
+<button class="store-box w-100 text-white" onclick="checkStore('Silicon')">
+    <strong>Silicon Valley</strong><br>
+    SM North EDSA
+</button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center mt-4">
+            Learn more about gaming laptops at
+            <a href="https://www.tomshardware.com" target="_blank" class="text-info">Tom's Hardware</a>
+        </p>
+    </div>
+
+    <script>
+        // This function finds the best gaming laptop based on budget
+        function findLaptop() {
+  
+            // This function checks if the selected store has the laptop
+function checkStore(store) {
+
+    let budget = Number(document.getElementById("budget").value);
+    let message = "";
+
+    // Villman sells mid-range and high-end laptops
+    if (store == "Villman") {
+        if (budget >= 40000) {
+            message = "Available at Villman Computers ✅";
+        } else {
+            message = "Not available at Villman ❌";
+        }
+    }
+
+    // Silicon Valley sells entry-level and mid-range laptops
+    if (store == "Silicon") {
+        if (budget >= 20000 && budget < 70000) {
+            message = "Available at Silicon Valley ✅";
+        } else {
+            message = "Not available at Silicon Valley ❌";
+        }
+    }
+
+    document.getElementById("output").innerHTML = message;
+}
+
+            // Get user's budget
+            let budget = Number(document.getElementById("budget").value);
+            let result = "";
+
+            // Decision making using if-else
+            if (budget >= 70000) {
+                result = "High-End Gaming Laptop (RTX Graphics, Ultra Performance)";
+            }
+            else if (budget >= 40000) {
+                result = "Mid-Range Gaming Laptop (Smooth Gaming Experience)";
+            }
+            else if (budget >= 20000) {
+                result = "Entry-Level Gaming Laptop (Light Gaming)";
+            }
+            else {
+                result = "Your budget is too low for a gaming laptop.";
+            }
+
+            // Show result
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
+ s
+
+    
